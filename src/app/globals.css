@@ -1,26 +1,55 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&f[]=cabinet-grotesk@700,800,900&display=swap');
 @import "tailwindcss";
 
+@theme {
+  /* Brand Colors */
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-lighter: #F3E5AB;
+  --color-brand-dark: #0A0A0A;
+  --color-brand-surface: #171717;
+  
+  /* Typography */
+  --font-clash: 'Clash Display', sans-serif;
+  --font-satoshi: 'Satoshi', sans-serif;
+  --font-cabinet: 'Cabinet Grotesk', sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #050505;
+  --foreground: #FAFAFA;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-satoshi);
+  overflow-x: hidden;
+}
+
+/* CRITICAL: Clash Display with Geometric Alternates (sloped A, arched F) */
+.font-clash-alt {
+  font-family: var(--font-clash);
+  font-feature-settings: "ss01" 1;
+}
+
+/* Bold rounded geometric headline font (screenshot match) */
+.font-cabinet-bold {
+  font-family: var(--font-cabinet);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Hide scrollbar for a cleaner luxury UI */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
 }
