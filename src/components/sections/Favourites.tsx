@@ -64,7 +64,7 @@ export default function Favourites() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
-            className="mt-8 text-neutral-950 font-clash font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] leading-[1.1] tracking-tight"
+            className="mt-8 text-neutral-950 font-clash font-bold text-[28px] sm:text-4xl md:text-5xl lg:text-[4rem] leading-[1.1] tracking-tight"
           >
             The meals our customers <br />
             order again and again.
