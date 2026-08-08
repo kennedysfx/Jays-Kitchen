@@ -19,6 +19,13 @@
   --foreground: #FAFAFA;
 }
 
+/* Prevent iOS Safari from auto-boosting text size, which throws off 
+   proportions between text and fixed-size elements on real devices */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
