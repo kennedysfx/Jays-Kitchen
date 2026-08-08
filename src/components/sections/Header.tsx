@@ -17,21 +17,15 @@ const navLinks = [
 export default function Header({
   isMobileMenuOpen,
   setIsMobileMenuOpen,
+  isScrolled,
+  topbarHeight,
 }: {
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (open: boolean) => void;
+  isScrolled: boolean;
+  topbarHeight: number;
 }) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Lock body scroll while the mobile menu is open
   useEffect(() => {
@@ -60,14 +54,15 @@ export default function Header({
   }, [isMobileMenuOpen, setIsMobileMenuOpen]);
 
   const showSolid = isScrolled || isMobileMenuOpen;
+  const offset = showSolid ? 0 : topbarHeight;
 
   return (
     <>
       <header
         ref={headerRef}
-        className={`fixed left-0 right-0 transition-all duration-300 will-change-transform will-change-opacity h-12`}
+        className={`fixed top-0 left-0 right-0 transition-transform duration-300 will-change-transform h-12`}
         style={{
-          top: "var(--topbar-height, 0px)",
+          transform: `translateY(${offset}px)`,
           zIndex: 50,
         }}
         aria-label="Main header"
@@ -80,9 +75,9 @@ export default function Header({
           }`}
         >
           <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex-shrink-0 flex items-center z-50 relative w-[60px] h-[60px] rounded-full overflow-hidden">
-              <Link href="/" className="relative block w-full h-full">
+            {/* Logo + Site Name */}
+            <div className="flex-shrink-0 flex items-center gap-3 z-50">
+              <Link href="/" className="relative block w-[60px] h-[60px] rounded-full overflow-hidden">
                 <Image
                   src="/logo-black.png"
                   alt="Jay's Kitchen Logo"
@@ -100,6 +95,16 @@ export default function Header({
                   }`}
                 />
               </Link>
+
+{/* Site Name — color synced with header state, apostrophe fixed gold */}
+<Link
+  href="/"
+  className={`font-satoshi font-bold tracking-wide text-base sm:text-lg transition-colors duration-300 ${
+    showSolid ? "text-neutral-950" : "text-white"
+  }`}
+>
+  Jay<span className="text-[#FFD600]">&apos;</span>s Kitchen
+</Link>
             </div>
 
             {/* Desktop nav */}

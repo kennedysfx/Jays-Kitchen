@@ -1,9 +1,11 @@
 "use client";
 
+import { memo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function Hero() {
+
+function Hero() {
   return (
     <section className="relative w-full min-h-screen bg-[#050505] flex flex-col lg:flex-row overflow-hidden gap-0">
       
@@ -53,7 +55,7 @@ export default function Hero() {
         >
           
           {/* Pre-Header Text */}
-          <p className="font-satoshi font-medium uppercase tracking-[0.2em] text-[8px] sm:text-[8.5px] lg:text-xs text-white mb-4 text-center lg:text-left lg:whitespace-nowrap m-0">
+          <p className="font-satoshi font-medium uppercase tracking-[0.2em] text-[7px] sm:text-[8.5px] lg:text-xs text-white mb-4 text-center lg:text-left lg:whitespace-nowrap m-0">
             HOME OF SCRUMPTIOUS CUISINE · NSUKKA · PICKUP & DELIVERY
           </p>
 
@@ -99,7 +101,7 @@ export default function Hero() {
             >
               <Link 
                 href="#whatsapp"
-                className="group relative flex items-center justify-center w-full px-2 sm:px-6 py-3.5 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-neutral-950 font-satoshi font-semibold capitalize tracking-widest text-[11px] sm:text-xs rounded-[22px] shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] overflow-hidden transition-all duration-300"
+                className="group relative flex items-center justify-center w-full px-2 sm:px-6 py-3.5 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-neutral-950 font-satoshi font-semibold capitalize tracking-widest text-[12px] sm:text-xs rounded-[22px] shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] overflow-hidden transition-all duration-300"
               >
                 <span className="absolute top-0 -left-[150%] w-[150%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] group-hover:left-[100%] transition-all duration-1000 ease-out z-10"></span>
                 <span className="relative z-20 text-center whitespace-nowrap">Order on Whatsapp</span>
@@ -118,7 +120,7 @@ export default function Hero() {
             >
               <Link 
                 href="#menu"
-                className="flex items-center justify-center w-full px-2 sm:px-6 py-3.5 bg-white/5 backdrop-blur-md border border-white/20 text-white font-satoshi font-semibold capitalize tracking-widest text-[11px] sm:text-xs rounded-[22px] hover:bg-white/10 hover:border-[#D4AF37] transition-all duration-300 text-center whitespace-nowrap"
+                className="flex items-center justify-center w-full px-2 sm:px-6 py-3.5 bg-white/5 backdrop-blur-md border border-white/20 text-white font-satoshi font-semibold capitalize tracking-widest text-[13px] sm:text-xs rounded-[22px] hover:bg-white/10 hover:border-[#D4AF37] transition-all duration-300 text-center whitespace-nowrap"
               >
                 See Menu
               </Link>
@@ -131,3 +133,5 @@ export default function Hero() {
     </section>
   );
 }
+
+export default memo(Hero);

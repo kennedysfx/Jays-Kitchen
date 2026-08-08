@@ -1,42 +1,39 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-export default function Topbar({ isMobileMenuOpen }: { isMobileMenuOpen: boolean }) {
+export default function Topbar({
+  isMobileMenuOpen,
+  isScrolled,
+  onHeightChange,
+}: {
+  isMobileMenuOpen: boolean;
+  isScrolled: boolean;
+  onHeightChange: (height: number) => void;
+}) {
   const elRef = useRef<HTMLDivElement | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
   const announcement =
     "★ COOKED FRESH TO ORDER ★ WHITE-GLOVE DELIVERY ★ BESPOKE CATERING ★ OPEN 9AM TO 10PM ★ HIGH-GRADE INGREDIENTS ";
 
   const shouldHide = isScrolled || isMobileMenuOpen;
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     const el = elRef.current;
     if (!el) return;
 
-    const setVar = () => {
-      const h = shouldHide ? 0 : el.offsetHeight;
-      document.documentElement.style.setProperty("--topbar-height", `${h}px`);
-    };
+    const reportHeight = () => onHeightChange(el.offsetHeight);
 
-    setVar();
-    const ro = new ResizeObserver(setVar);
+    reportHeight();
+    const ro = new ResizeObserver(reportHeight);
     ro.observe(el);
-    window.addEventListener("resize", setVar);
+    window.addEventListener("resize", reportHeight);
 
     return () => {
       ro.disconnect();
-      window.removeEventListener("resize", setVar);
+      window.removeEventListener("resize", reportHeight);
     };
-  }, [shouldHide]);
+  }, [onHeightChange]);
 
   return (
     <div
