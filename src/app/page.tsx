@@ -6,6 +6,10 @@ import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
 import FoodTicker from "@/components/sections/FoodTicker";
 import Favourites from "@/components/sections/Favourites";
+import FoodGallery from "@/components/sections/FoodGallery";
+import Menu from "@/components/sections/Menu";
+import Howitworks from "@/components/sections/Howitworks";
+import Review from "@/components/sections/Review";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -46,9 +50,12 @@ export default function Home() {
       <Hero />
       <FoodTicker />
       <Favourites />
+      <FoodGallery />
+      <Menu />
+      <Howitworks />
+      <Review/>
 
 
-      <div className="min-h-[200vh]"></div>
       
     </main>
   );

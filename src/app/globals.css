@@ -60,3 +60,19 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #404040;
 }
+/* Smooth CSS-driven marquee for KitchenGallery (replaces JS-driven animation) */
+.kitchen-marquee {
+  animation: kitchen-marquee-scroll 30s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@keyframes kitchen-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+}

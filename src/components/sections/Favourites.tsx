@@ -31,40 +31,40 @@ const favouriteItems = [
     id: 1, 
     image: "/favourite/fav-1.jpg", 
     alt: "Favourite Dish 1",
-    name: "Classic Party Jollof",
-    description: "Smoky, firewood-cooked jollof rice served with fried plantains and succulent grilled chicken.",
+    name: "White Rice & Peppered Chicken Stew",
+    description: "White rice served with a rich, spicy peppered chicken stew.",
     priceSmall: "₦3,500",
-    priceBig: "₦5,500",
+    priceBig: "₦4,000",
     hoverAction: "hover:-translate-y-3" 
   }, 
   { 
     id: 2, 
     image: "/favourite/fav-2.jpg", 
     alt: "Favourite Dish 2",
-    name: "Spicy Asun",
-    description: "Bite-sized roasted goat meat tossed in a rich, fiery pepper mix and local spices.",
-    priceSmall: "₦4,000",
-    priceBig: "₦7,000",
+    name: "White Rice & Chicken Sauce",
+    description: "Soft white rice paired with a tasty, lightly spiced chicken sauce that hits different.",
+    priceSmall: "₦2,700",
+    priceBig: "₦3,200",
     hoverAction: "hover:translate-y-3"  
   },  
   { 
     id: 3, 
     image: "/favourite/fav-3.jpg", 
     alt: "Favourite Dish 3",
-    name: "Egusi & Pounded Yam",
-    description: "Rich melon seed soup with assorted meats, paired with perfectly smooth pounded yam.",
-    priceSmall: "₦4,500",
-    priceBig: "₦8,000",
+    name: "Edikaikong Soup & Swallow",
+    description: "Loaded vegetable soup packed with assorted meat and fish, served hot with your choice of swallow.",
+    priceSmall: "₦2,800",
+    priceBig: "₦3,500",
     hoverAction: "hover:-translate-y-3" 
   }, 
   { 
     id: 4, 
     image: "/favourite/fav-4.jpg", 
     alt: "Favourite Dish 4",
-    name: "Special Fried Rice",
-    description: "Flavorful basmati fried rice packed with fresh vegetables, prawns, and diced liver.",
-    priceSmall: "₦4,000",
-    priceBig: "₦6,500",
+    name: "Party Jollof Rice & peppered Chicken",
+    description: "Party jollof done right, paired with well-peppered, smoky chicken.",
+    priceSmall: "₦3,500",
+    priceBig: "₦4,000",
     hoverAction: "hover:translate-y-3"  
   },  
 ];
@@ -220,6 +220,15 @@ export default function Favourites() {
           >
             Customers Favourites
           </motion.span>
+          {/* Gold hairline signature */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, amount: 0.5 }}
+           transition={{ duration: 0.5, ease: "easeOut" }}
+           className="w-32 h-0.5 bg-gradient-to-r from-transparent via-brand-gold to-transparent mt-6"
+           style={{ boxShadow: '0 0 6px rgba(212,175,55,0.5)' }}
+         />
           
          <motion.h2 
             variants={itemVariants}
@@ -239,6 +248,27 @@ export default function Favourites() {
             <FavouriteCard key={item.id} item={item} index={index} />
           ))}
         </div>
+
+
+{/* Bottom CTA */}
+<motion.div
+  variants={itemVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.5 }}
+  className="flex flex-col items-center justify-center text-center mt-16 sm:mt-20"
+>
+  <p className="font-satoshi text-neutral-950 font-bold text-lg sm:text-xl mb-6">
+    There&apos;s a whole lot more where that came from.
+  </p>
+  <motion.button
+    whileHover={{ scale: 1.03 }}
+    whileTap={{ scale: 0.97 }}
+    className="bg-neutral-950 text-white font-satoshi font-bold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-neutral-800 transition-colors duration-300 shadow-[0px_4px_10px_rgba(0,0,0,0.3)] "
+  >
+    See the Full Menu
+  </motion.button>
+</motion.div>
 
       </div>
     </section>

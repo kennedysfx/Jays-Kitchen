@@ -4,13 +4,13 @@ import { memo } from "react";
 import { motion } from "framer-motion";
 
 const foodItems = [
-  "JOLLOF",
-  "FRIED RICE",
-  "NOODLES",
+  "Party Jollof",
+  "Chicken Sauce",
+  "Edikaikong Soup & Swallow",
   "ASUN",
   "PLANTAIN",
   "EGUSI",
-  "PARTY TRAYS",
+  "peppered Chicken",
   "COMBOS",
 ];
 
