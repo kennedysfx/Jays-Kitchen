@@ -4,10 +4,10 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 
 const galleryImages = [
-  { id: 1, src: "/favourite/fav-1.jpg", alt: "Freshly packed meal 1" },
-  { id: 2, src: "/favourite/fav-2.jpg", alt: "Freshly packed meal 2" },
-  { id: 3, src: "/favourite/fav-3.jpg", alt: "Freshly packed meal 3" },
-  { id: 4, src: "/favourite/fav-4.jpg", alt: "Freshly packed meal 4" },
+  { id: 1, src: "/favourite/fav-1.webp", alt: "Freshly packed meal 1" },
+  { id: 2, src: "/favourite/fav-2.webp", alt: "Freshly packed meal 2" },
+  { id: 3, src: "/favourite/fav-3.webp", alt: "Freshly packed meal 3" },
+  { id: 4, src: "/favourite/fav-4.webp", alt: "Freshly packed meal 4" },
 ];
 
 const headingVariants: Variants = {

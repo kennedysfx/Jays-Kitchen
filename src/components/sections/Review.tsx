@@ -80,19 +80,6 @@ export default function ReviewsA() {
           {loopedReviews.slice().reverse().map((r, i) => <ReviewCard key={`row2-${i}`} review={r} />)}
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes marquee-left {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-marquee-left { animation: marquee-left 40s linear infinite; }
-        .animate-marquee-right { animation: marquee-right 40s linear infinite; }
-      `}</style>
     </section>
   );
 }

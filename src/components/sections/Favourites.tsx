@@ -29,7 +29,7 @@ const ContainerIcon = () => (
 const favouriteItems = [
   { 
     id: 1, 
-    image: "/favourite/fav-1.jpg", 
+    image: "/favourite/fav-1.webp", 
     alt: "Favourite Dish 1",
     name: "White Rice & Peppered Chicken Stew",
     description: "White rice served with a rich, spicy peppered chicken stew.",
@@ -39,7 +39,7 @@ const favouriteItems = [
   }, 
   { 
     id: 2, 
-    image: "/favourite/fav-2.jpg", 
+    image: "/favourite/fav-2.webp", 
     alt: "Favourite Dish 2",
     name: "White Rice & Chicken Sauce",
     description: "Soft white rice paired with a tasty, lightly spiced chicken sauce that hits different.",
@@ -49,7 +49,7 @@ const favouriteItems = [
   },  
   { 
     id: 3, 
-    image: "/favourite/fav-3.jpg", 
+    image: "/favourite/fav-3.webp", 
     alt: "Favourite Dish 3",
     name: "Edikaikong Soup & Swallow",
     description: "Loaded vegetable soup packed with assorted meat and fish, served hot with your choice of swallow.",
@@ -59,7 +59,7 @@ const favouriteItems = [
   }, 
   { 
     id: 4, 
-    image: "/favourite/fav-4.jpg", 
+    image: "/favourite/fav-4.webp", 
     alt: "Favourite Dish 4",
     name: "Party Jollof Rice & peppered Chicken",
     description: "Party jollof done right, paired with well-peppered, smoky chicken.",

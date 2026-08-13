@@ -1,6 +1,8 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 // Same minimalist to-go container icon used in Favourites.tsx
 const ContainerIcon = () => (
@@ -21,36 +23,64 @@ const ContainerIcon = () => (
   </svg>
 );
 
+// Background slideshow images — portrait for mobile, landscape for desktop
+const bgImages = [
+  { portrait: "/menu/menup1.webp", landscape: "/menu/menul1.webp" },
+  { portrait: "/menu/menup2.webp", landscape: "/menu/menul2.webp" },
+  { portrait: "/menu/menup3.webp", landscape: "/menu/menul3.webp" },
+];
+
 const menuCategories = [
   {
     id: 1,
     title: "Meals",
     items: [
-      { name: "Party Jollof Rice", priceSmall: "₦3,500", priceBig: "₦4,000" },
-      { name: "White Rice & Stew", priceSmall: "₦3,000", priceBig: "₦3,500" },
-      { name: "Egusi & Swallow", priceSmall: "₦2,800", priceBig: "₦3,500" },
-      { name: "Special Fried Rice", priceSmall: "₦3,200", priceBig: "₦4,000" },
+      { name: "Party Jollof Rice and Peppered Chicken", priceSmall: "₦3,000", priceBig: "₦3,500" },
+      { name: "Fried Rice and Chicken", priceSmall: "₦2,800", priceBig: "₦3,300" },
+      { name: "White Rice and Chicken Sauce", priceSmall: "₦2,800", priceBig: "₦3,300" },
+      { name: "White Rice and Peppered Chicken Stew", priceSmall: "₦3,500", priceBig: "₦4,000" },
+      { name: "Peppered Chicken", priceSmall: "₦2,700", priceBig: "₦3,200" },
+      { name: "White Rice and Chicken Pepper Soup", priceSmall: "₦2,800", priceBig: "₦3,500" },
+      { name: "White Spaghetti and Peppered Chicken Stew", priceSmall: "₦3,700", priceBig: "₦4,200" },
+      { name: "Garnished Jollof Spaghetti and Chicken", priceSmall: "₦2,800", priceBig: "₦3,300" },
     ],
   },
   {
     id: 2,
-    title: "Combos",
+    title: "Soup",
     items: [
-      { name: "Jollof + Chicken", priceSmall: "₦4,500", priceBig: "₦5,500" },
-      { name: "Fried Rice + Fish", priceSmall: "₦4,200", priceBig: "₦5,200" },
-      { name: "Egusi + Peppered Beef", priceSmall: "₦4,800", priceBig: "₦6,000" },
-      { name: "Party Pack Combo", priceSmall: "₦5,000", priceBig: "₦6,500" },
+      { name: "Edikaikong Soup with Swallow ", priceSmall: "₦2,800", priceBig: "₦3,500" },
+      { name: "Vegetable/Okro with Swallow", priceSmall: "₦2,500", priceBig: "₦3,200" },
+      { name: "Egusi/Ugu with Swallow", priceSmall: "₦2,300", priceBig: "₦3,000" },
+      { name: "Egusi/Okazi with Swallow", priceSmall: "₦2,600", priceBig: "₦3,300" },
+      { name: "Egusi/Onugbu with Swallow", priceSmall: "₦2,400", priceBig: "₦3,100" },
     ],
   },
   {
     id: 3,
     title: "Sides",
     items: [
-      { name: "Fried Plantain", priceSmall: "₦800", priceBig: "₦1,200" },
-      { name: "Peppered Chicken", priceSmall: "₦1,800", priceBig: "₦2,500" },
-      { name: "Asun (Spicy Goat Meat)", priceSmall: "₦2,000", priceBig: "₦3,000" },
-      { name: "Moi Moi", priceSmall: "₦800", priceBig: "₦1,200" },
+      { name: "Fried Chicken and Chips", priceSmall: "₦3,000", priceBig: "₦3,700" },
+      { name: "Fried Beef and Chips", priceSmall: "₦2,700", priceBig: "₦3,200" },
+      { name: "Chicken Pepper Soup", priceSmall: "₦2,500", priceBig: "₦3,000" },
     ],
+extra: {
+  title: "Extra",
+  items: [
+    { name: "Swallow", price: "₦400" },
+    { name: "Beef/Kpomo", price: "₦700" },
+    { name: "Chicken ", price: "₦1000" },
+    { name: "Portion ", price: "₦800" },
+  ],
+},
+drinks: {
+  title: "Drinks",
+  items: [
+    { name: "Bottled Water", price: "₦300" },
+    { name: "Soft Drink (Coke, Fanta, Sprite)", price: "₦500" },
+    { name: "Chapman", price: "₦1,500" },
+      ],
+    },
   },
 ];
 
@@ -64,9 +94,53 @@ const headingVariants: Variants = {
 };
 
 export default function Menu() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % bgImages.length);
+    }, 5000); // switches every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="menu" className="w-full bg-white py-20 sm:py-24 px-6 relative z-10">
-      <div className="container mx-auto max-w-7xl">
+    <section id="menu" className="w-full bg-white py-20 sm:py-24 px-6 relative z-10 overflow-hidden">
+
+      {/* Background Image Slideshow */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={activeSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            {/* Portrait image — mobile only */}
+            <Image
+              src={bgImages[activeSlide].portrait}
+              alt="Menu background"
+              fill
+              className="object-cover block sm:hidden"
+              priority={activeSlide === 0}
+            />
+            {/* Landscape image — tablet and up */}
+            <Image
+              src={bgImages[activeSlide].landscape}
+              alt="Menu background"
+              fill
+              className="object-cover hidden sm:block"
+              priority={activeSlide === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
+        {/* Frosted glass layer over the images — blurred + semi-transparent white */}
+        <div className="absolute inset-0 backdrop-blur-md bg-white/20"></div>
+      </div>
+
+      <div className="container mx-auto max-w-7xl relative z-10">
 
         {/* Heading Section */}
         <div className="flex flex-col items-center justify-center text-center">
@@ -106,7 +180,7 @@ export default function Menu() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
-            className="mt-6 font-satoshi text-neutral-500 text-sm sm:text-base max-w-xl"
+            className="mt-6 font-satoshi text-neutral-100 text-sm sm:text-base max-w-xl"
           >
             A menu built for sharing. Choose freely, then Tap Order now to send your list on WhatsApp.
           </motion.p>
@@ -132,7 +206,7 @@ export default function Menu() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="rounded-3xl border-2 border-neutral-300 bg-neutral-950 p-6 sm:p-8 font-satoshi shadow-[0_8px_10px_rgba(0,0,0,0.5)]"
+              className="rounded-none border-2 border-neutral-300 bg-neutral-950 p-6 sm:p-8 font-satoshi shadow-[0_8px_10px_rgba(0,0,0,0.5)]"
             >
               {/* Category Subheading */}
               <h3 className="text-brand-gold font-clash font-bold text-2xl sm:text-3xl mb-1 inline-block">
@@ -174,6 +248,57 @@ export default function Menu() {
                   </div>
                 ))}
               </div>
+
+{/* Extra section — only renders if this category has one */}
+{category.extra && (
+  <>
+    <h4 className="text-brand-gold font-clash font-bold text-2xl sm:text-3xl mb-1 inline-block mt-8">
+      {category.extra.title}
+    </h4>
+    <div className="w-16 h-[3px] bg-brand-gold mb-6"></div>
+    <div className="flex flex-col gap-5">
+      {category.extra.items.map((item, itemIndex) => (
+        <div
+          key={itemIndex}
+          className="flex items-center justify-between gap-4 pb-5 border-b border-neutral-800 last:border-b-0 last:pb-0"
+        >
+          <span className="text-white text-sm sm:text-base font-medium leading-snug">
+            {item.name}
+          </span>
+          <span className="flex items-center gap-1.5 text-brand-gold font-bold text-sm sm:text-base flex-shrink-0">
+            <ContainerIcon />
+            {item.price}
+          </span>
+        </div>
+      ))}
+    </div>
+  </>
+)}
+
+{/* Drinks section — only renders if this category has one */}
+{category.drinks && (
+  <>
+    <h4 className="text-brand-gold font-clash font-bold text-2xl sm:text-3xl mb-1 inline-block mt-8">
+      {category.drinks.title}
+    </h4>
+    <div className="w-16 h-[3px] bg-brand-gold mb-6"></div>
+    <div className="flex flex-col gap-5">
+      {category.drinks.items.map((item, itemIndex) => (
+        <div
+          key={itemIndex}
+          className="flex items-center justify-between gap-4 pb-5 border-b border-neutral-800 last:border-b-0 last:pb-0"
+        >
+          <span className="text-white text-sm sm:text-base font-medium leading-snug">
+            {item.name}
+          </span>
+<span className="text-brand-gold font-bold text-sm sm:text-base flex-shrink-0">
+  {item.price}
+</span>
+        </div>
+      ))}
+    </div>
+  </>
+)}
             </motion.div>
           ))}
         </div>
