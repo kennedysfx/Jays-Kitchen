@@ -24,7 +24,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-<section className="relative w-full bg-[#F7F3EB] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 font-satoshi overflow-hidden -mt-px border-none">
+<section id="how-it-works" className="relative w-full bg-[#F7F3EB] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 font-satoshi overflow-hidden -mt-px border-none">
   
   {/* Signature: soft ambient gold bloom behind the heading — the one bold move */}
   <div 

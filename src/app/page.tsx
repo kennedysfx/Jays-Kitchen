@@ -10,6 +10,10 @@ import FoodGallery from "@/components/sections/FoodGallery";
 import Menu from "@/components/sections/Menu";
 import Howitworks from "@/components/sections/Howitworks";
 import Review from "@/components/sections/Review";
+import Services from "@/components/sections/Services";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
+
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,9 +58,9 @@ export default function Home() {
       <Menu />
       <Howitworks />
       <Review/>
-
-
-      
+      <Services />
+      <Contact />
+      <Footer />
     </main>
   );
 }

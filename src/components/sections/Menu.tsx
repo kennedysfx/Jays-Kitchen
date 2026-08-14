@@ -308,7 +308,7 @@ export default function Menu() {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="bg-neutral-950 hover:bg-neutral-950 text-white font-satoshi font-bold text-sm sm:text-base px-8 py-4 rounded-full transition-transform duration-300 shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
+            className="bg-neutral-950 hover:bg-neutral-950 text-white font-satoshi font-bold text-sm sm:text-base px-8 py-4 rounded-none transition-transform duration-300 shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
           >
             Order on WhatsApp
           </motion.button>

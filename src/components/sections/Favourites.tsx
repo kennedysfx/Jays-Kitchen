@@ -156,9 +156,9 @@ function FavouriteCard({ item, index }: { item: typeof favouriteItems[number]; i
         {/* Content Area - font-satoshi applied here to cascade to all texts */}
         <div className="flex flex-col flex-grow px-4 pb-4 pt-1 sm:px-5 sm:pb-5 sm:pt-2 bg-white z-10 font-satoshi">
           <div className="mb-4">
-            <h3 className="text-neutral-950 font-clash font-bold text-xl sm:text-2xl mb-1.5 line-clamp-1">
-              {item.name}
-            </h3>
+           <h3 className="text-neutral-950 font-clash font-bold text-xl sm:text-2xl mb-1.5 leading-tight">
+             {item.name}
+           </h3>
             <p className="text-neutral-500 text-sm leading-relaxed line-clamp-2">
               {item.description}
             </p>
@@ -264,7 +264,7 @@ export default function Favourites() {
   <motion.button
     whileHover={{ scale: 1.03 }}
     whileTap={{ scale: 0.97 }}
-    className="bg-neutral-950 text-white font-satoshi font-bold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-neutral-800 transition-colors duration-300 shadow-[0px_4px_10px_rgba(0,0,0,0.3)] "
+    className="bg-neutral-950 text-white font-satoshi font-bold text-sm sm:text-base px-8 py-4 rounded-none hover:bg-neutral-800 transition-colors duration-300 shadow-[0px_4px_10px_rgba(0,0,0,0.3)] "
   >
     See the Full Menu
   </motion.button>
