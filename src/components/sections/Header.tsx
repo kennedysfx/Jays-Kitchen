@@ -78,22 +78,24 @@ export default function Header({
             {/* Logo + Site Name */}
             <div className="flex-shrink-0 flex items-center gap-3 z-50">
               <Link href="/" className="relative block w-[60px] h-[60px] rounded-full overflow-hidden">
-                <Image
-                  src="/logo-black.png"
-                  alt="Jay's Kitchen Logo"
-                  fill
-                  className={`object-contain transition-opacity duration-300 ${
-                    showSolid ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-                <Image
-                  src="/logo-white.png"
-                  alt="Jay's Kitchen Logo"
-                  fill
-                  className={`object-contain transition-opacity duration-300 ${
-                    showSolid ? "opacity-0" : "opacity-100"
-                  }`}
-                />
+            <Image
+              src="/logo-black.png"
+              alt="Jay's Kitchen Logo"
+              fill
+              sizes="(max-width: 768px) 150px, 250px"
+              className={`object-contain transition-opacity duration-300 ${
+                showSolid ? "opacity-100" : "opacity-0"
+              }`}
+            />
+            <Image
+              src="/logo-white.png"
+              alt="Jay's Kitchen Logo"
+              fill
+              sizes="(max-width: 768px) 150px, 250px"
+              className={`object-contain transition-opacity duration-300 ${
+              showSolid ? "opacity-0" : "opacity-100"
+              }`}
+            />
               </Link>
 
 {/* Site Name — color synced with header state, apostrophe fixed gold */}

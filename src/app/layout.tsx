@@ -4,6 +4,18 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Jay's Kitchen | Home Of Scrumptious Cusines",
   description: "Your comfort food delivered hot and fresh.",
+  icons: [
+    {
+      media: "(prefers-color-scheme: light)",
+      url: "/logo-black.png",
+      href: "/logo-black.png",
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      url: "/logo-white.png",
+      href: "/logo-white.png",
+    },
+  ],
 };
 
 export default function RootLayout({

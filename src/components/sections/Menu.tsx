@@ -127,13 +127,14 @@ export default function Menu() {
               priority={activeSlide === 0}
             />
             {/* Landscape image — tablet and up */}
-            <Image
-              src={bgImages[activeSlide].landscape}
-              alt="Menu background"
-              fill
-              className="object-cover hidden sm:block"
-              priority={activeSlide === 0}
-            />
+           <Image
+             src={bgImages[activeSlide].landscape}
+             alt="Menu background"
+             fill
+             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+             className="object-cover hidden sm:block"
+             priority={activeSlide === 0}
+           />
           </motion.div>
         </AnimatePresence>
         {/* Frosted glass layer over the images — blurred + semi-transparent white */}

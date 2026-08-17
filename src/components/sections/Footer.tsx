@@ -55,14 +55,20 @@ export default function Footer() {
             viewport={{ once: true, amount: 0.3 }}
             className="flex flex-col sm:col-span-2 lg:col-span-1"
           >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden flex-shrink-0">
-                <Image src="/logo-white.png" alt="Jay's Kitchen Logo" fill className="object-contain" />
-              </div>
-              <span className="font-satoshi font-bold text-lg text-white">
-                Jay<span className="text-brand-gold">&apos;</span>s Kitchen
-              </span>
-            </div>
+<div className="flex items-center gap-3 mb-5">
+  <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden flex-shrink-0">
+    <Image 
+      src="/logo-white.png" 
+      alt="Jay's Kitchen Logo" 
+      fill 
+      sizes="50px"
+      className="object-contain" 
+    />
+  </div>
+  <span className="font-satoshi font-bold text-lg text-white">
+    Jay<span className="text-brand-gold">&apos;</span>s Kitchen
+  </span>
+</div>
             <p className="text-neutral-400 text-sm leading-relaxed max-w-sm">
               Authentic Nigerian comfort food, cooked fresh and delivered hot across Nsukka. No stress, no wahala, just real food, whenever the craving hits.
             </p>
