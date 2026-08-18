@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   icons: [
     {
       media: "(prefers-color-scheme: light)",
-      url: "/logo-black.png",
-      href: "/logo-black.png",
+      url: "/logo-black.png?v=2",
+      href: "/logo-black.png?v=2",
     },
     {
       media: "(prefers-color-scheme: dark)",
-      url: "/logo-white.png",
-      href: "/logo-white.png",
+      url: "/logo-white.png?v=2",
+      href: "/logo-white.png?v=2",
     },
   ],
 };
@@ -26,8 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
+      <head>
+        <link rel="icon" href="/logo-black.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo-black.png?v=2" />
+      </head>
       <body className="antialiased bg-[#050505] text-[#FAFAFA] selection:bg-brand-gold/30">
-      <ScrollToTop />
+        <ScrollToTop />
         {children}
       </body>
     </html>
