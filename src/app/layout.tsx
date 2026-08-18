@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ScrollToTop from "../components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Jay's Kitchen | Home Of Scrumptious Cusines",
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className="antialiased bg-[#050505] text-[#FAFAFA] selection:bg-brand-gold/30">
+      <ScrollToTop />
         {children}
       </body>
     </html>
