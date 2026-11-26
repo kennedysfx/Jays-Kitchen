@@ -5,6 +5,7 @@ import Topbar from "@/components/sections/Topbar";
 import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
 import FoodTicker from "@/components/sections/FoodTicker";
+import Intro from "@/components/sections/Intro";
 import Favourites from "@/components/sections/Favourites";
 import FoodGallery from "@/components/sections/FoodGallery";
 import Menu from "@/components/sections/Menu";
@@ -53,6 +54,7 @@ export default function Home() {
       />
       <Hero />
       <FoodTicker />
+      <Intro />
       <Favourites />
       <FoodGallery />
       <Menu />
