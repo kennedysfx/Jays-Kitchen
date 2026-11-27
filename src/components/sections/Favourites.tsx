@@ -269,7 +269,7 @@ export default function Favourites() {
           className="flex flex-col items-center justify-center text-center mt-16 sm:mt-20"
         >
           <p className="font-satoshi text-neutral-950 font-bold text-lg sm:text-xl mb-6">
-            There&apos;s a whole lot more where that came from.
+            Good food speaks for itself, just ask the people who order from us every week.
           </p>
 
         </motion.div>

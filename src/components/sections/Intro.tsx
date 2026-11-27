@@ -70,7 +70,7 @@ export default function Intro() {
           <div className="relative w-full aspect-[4/4] sm:aspect-[4/3] lg:aspect-[4/4] rounded-none border-2 border-black overflow-hidden bg-neutral-100">
             <Image
               src="/menu/menu1.webp"
-              alt="Chef preparing fresh dishes at Jay's Kitchen"
+              alt="Incoming Image"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover rounded-none"

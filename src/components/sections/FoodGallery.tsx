@@ -19,6 +19,7 @@ const headingVariants: Variants = {
   },
 };
 
+
 export default function KitchenGallery() {
   // Duplicate the list so the marquee can loop seamlessly
   const marqueeImages = [...galleryImages, ...galleryImages, ...galleryImages];

@@ -1,113 +1,153 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const PillStarIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="shrink-0 text-neutral-950"
+  >
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+);
 
 const steps = [
   {
     id: "01",
     label: "Step One",
     title: "Send your order",
-    description: "Message us on WhatsApp with what you want. Our team confirms it in minutes.",
+    description:
+      "Message us on WhatsApp with what you want. Our team confirms it in minutes.",
+    image: "/how-it-works/step-1.webp",
+    alt: "incoming",
   },
   {
     id: "02",
     label: "Step Two",
     title: "We cook it fresh",
-    description: "Nothing sits waiting. Every order is made hot, packed, and sealed for the best experience.",
+    description:
+      "Nothing sits waiting. Every order is made hot, packed, and sealed for the best experience.",
+    image: "/how-it-works/step-2.webp",
+    alt: "incoming",
   },
   {
     id: "03",
     label: "Step Three",
     title: "Pickup or delivery",
-    description: "Grab it from our location, or we bring it to your door anywhere across Nsukka.",
-  }
+    description:
+      "Grab it from our location, or we bring it to your door anywhere across Nsukka.",
+    image: "/how-it-works/step-3.webp",
+    alt: "incoming",
+  },
 ];
 
 export default function HowItWorks() {
   return (
-<section id="how-it-works" className="relative w-full bg-[#F7F3EB] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 font-satoshi overflow-hidden -mt-px border-none">
-  
-  {/* Signature: soft ambient gold bloom behind the heading — the one bold move */}
-  <div 
-    className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"
-    style={{
-      background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.14) 0%, rgba(212,175,55,0) 70%)',
-    }}
-  />
-
-  {/* Fine grain texture for tactile, print-like quality */}
-  <div 
-    className="absolute inset-0 pointer-events-none opacity-[0.035] mix-blend-multiply"
-    style={{
-      backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-    }}
-  />
-
-  <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
-    
-    {/* Section Pill - Animated */}
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="bg-brand-gold text-neutral-950 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-6 shadow-sm"
+    <section
+      id="how-it-works"
+      className="relative w-full bg-[#F7F3EB] py-16 sm:py-22 px-4 sm:px-6 lg:px-8 font-satoshi overflow-hidden -mt-px border-none"
     >
-      How It Works
-    </motion.div>
-{/* Thin gold hairline signature under the pill */}
-<motion.div 
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.5 }}
-  transition={{ duration: 0.5, ease: "easeOut" }}
-  className="w-32 h-0.5 bg-gradient-to-r from-transparent via-brand-gold to-transparent mb-10" 
-/>
+      {/* Soft ambient gold bloom behind the heading */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(212,175,55,0.14) 0%, rgba(212,175,55,0) 70%)",
+        }}
+      />
 
-    {/* Main Heading */}
-    <motion.h2 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-      className="text-neutral-950 font-clash font-bold text-4xl sm:text-5xl md:text-6xl text-center max-w-3xl leading-[1.1] mb-16 sm:mb-20"
-    >
-      Your favourite meal<br className="hidden sm:block" /> is just 3 steps away.
-    </motion.h2>
+      {/* Fine grain texture for tactile, print-like quality */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.035] mix-blend-multiply"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+      />
 
-    {/* Cards Grid — unchanged, these already work */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full relative">
-      {steps.map((step, index) => (
-        <motion.div 
-          key={step.id}
-          initial={{ opacity: 0, y: 30 }}
+      <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
+        {/* Section Pill — White box, black star, and black offset shadow */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.15 }}
-          whileHover={{ y: -6 }}
-          className="flex flex-col h-full rounded-3xl border border-brand-gold/30 bg-neutral-950 p-8 sm:p-10 font-satoshi shadow-[0_10px_20px_-15px_rgba(0,0,0,0.5)] transition-shadow duration-500 hover:shadow-[0_25px_60px_-10px_rgba(212,175,55,0.25)]"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="inline-flex items-center gap-2 bg-white text-neutral-950 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.2em] border-2 border-black shadow-[0_4px_0_0_#000000] mb-6"
         >
-          <div className="w-14 h-14 rounded-full border border-brand-gold flex items-center justify-center mb-8">
-            <span className="text-brand-gold font-clash font-bold text-lg">
-              {step.id}
-            </span>
-          </div>
-
-          <span className="text-brand-gold/70 text-[11px] font-satoshi font-bold uppercase tracking-[0.25em] mb-2">
-            {step.label}
-          </span>
-          
-          <h3 className="text-white font-clash font-bold text-2xl sm:text-3xl tracking-tight mb-4">
-            {step.title}
-          </h3>
-          
-          <p className="text-neutral-400 text-base leading-relaxed font-satoshi">
-            {step.description}
-          </p>
+          <PillStarIcon />
+          <span>How It Works</span>
         </motion.div>
-      ))}
-    </div>
 
-  </div>
-</section>
+        {/* Main Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          className="text-neutral-950 font-clash font-bold text-3xl sm:text-5xl md:text-6xl text-center max-w-3xl leading-[1.1] mb-11 sm:mb-14"
+        >
+          Your favourite meal
+          <br className="hidden sm:block" /> is just 3 steps away.
+        </motion.h2>
+
+        {/* Cards Grid — Compact height with bottom image fade */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-7 w-full relative">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.15 }}
+              whileHover={{ y: -5 }}
+              className="group relative flex flex-col justify-end min-h-[300px] sm:min-h-[330px] rounded-2xl border-2 border-black bg-neutral-950 overflow-hidden shadow-[0_5px_0_0_#000000] transition-all duration-300"
+            >
+              {/* Full-bleed Step Background Image */}
+              <Image
+                src={step.image}
+                alt={step.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Smooth Bottom Fade Overlay */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/90 via-45% to-transparent"
+              />
+
+              {/* Compact Step Number Badge pinned top-left */}
+              <div className="absolute top-5 left-5 z-10 w-10 h-10 rounded-full bg-neutral-950/85 backdrop-blur-sm border-2 border-brand-gold flex items-center justify-center shadow-md">
+                <span className="text-brand-gold font-clash font-bold text-sm">
+                  {step.id}
+                </span>
+              </div>
+
+              {/* Text Content anchored over the faded lower area */}
+              <div className="relative z-10 p-6 sm:p-7 pt-16 flex flex-col">
+                <span className="text-brand-gold text-[10px] sm:text-[11px] font-satoshi font-bold uppercase tracking-[0.25em] mb-1">
+                  {step.label}
+                </span>
+
+                <h3 className="text-white font-clash font-bold text-xl sm:text-2xl tracking-tight mb-2">
+                  {step.title}
+                </h3>
+
+                <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-satoshi">
+                  {step.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

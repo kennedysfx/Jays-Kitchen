@@ -7,10 +7,10 @@ import Hero from "@/components/sections/Hero";
 import FoodTicker from "@/components/sections/FoodTicker";
 import Intro from "@/components/sections/Intro";
 import Favourites from "@/components/sections/Favourites";
+import Review from "@/components/sections/Review";
 import FoodGallery from "@/components/sections/FoodGallery";
 import Menu from "@/components/sections/Menu";
 import Howitworks from "@/components/sections/Howitworks";
-import Review from "@/components/sections/Review";
 import Services from "@/components/sections/Services";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
@@ -56,10 +56,10 @@ export default function Home() {
       <FoodTicker />
       <Intro />
       <Favourites />
+      <Review />
       <FoodGallery />
       <Menu />
       <Howitworks />
-      <Review/>
       <Services />
       <Contact />
       <Footer />
