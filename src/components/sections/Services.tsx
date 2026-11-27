@@ -1,187 +1,173 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
-const services = [
-  {
-    id: "01",
-    title: "Culinary Services",
-    description:
-      "Enjoy professional home cooking, custom meal prep tailored to your schedule, and top-tier catering for all your special events.",
-    badge: "Chef's Touch",
-    icon: (
-      <svg className="w-6 h-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 01-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-      </svg>
-    ),
-  },
-  {
-    id: "02",
-    title: "Delivery & Takeaway",
-    description:
-      "Fast and reliable food delivery, complete meal kits to cook at home, and curated party packs brought straight to your door.",
-    badge: "Quick & Easy",
-    icon: (
-      <svg className="w-6 h-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-      </svg>
-    ),
-  },
-  {
-    id: "03",
-    title: "Personalized Services",
-    description:
-      "Experience luxury dining with private chef services, interactive cooking classes, and tailored menu planning for your household.",
-    badge: "VIP Experience",
-    icon: (
-      <svg className="w-6 h-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      </svg>
-    ),
-  },
-  {
-    id: "04",
-    title: "Specialty Services",
-    description:
-      "Custom event-specific menus for weddings and birthdays, plus dietary-specific meals including vegan, gluten-free, and more.",
-    badge: "Tailored Menus",
-    icon: (
-      <svg className="w-6 h-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-      </svg>
-    ),
-  },
-  {
-    id: "05",
-    title: "Consultation & Extra",
-    description:
-      "Comprehensive grocery shopping, expert kitchen consultation, and bespoke recipe development for your unique culinary needs.",
-    badge: "Expert Advice",
-    icon: (
-      <svg className="w-6 h-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-      </svg>
-    ),
-  },
+const PillStarIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="shrink-0 text-brand-gold"
+  >
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+);
+
+const compactServices = [
+  "Delivery & Takeaway",
+  "Personalized Private Chef",
+  "Specialty & Custom Menus",
+  "Consultation & Kitchen Extras",
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="w-full bg-white py-20 sm:py-28 px-4 sm:px-6 lg:px-8 font-satoshi relative overflow-hidden -mt-px border-none">
-      <div className="max-w-7xl mx-auto flex flex-col items-center">
-        
-        {/* Section Pill */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="bg-brand-gold text-neutral-950 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-6 shadow-sm"
-        >
-          Our Services
-        </motion.div>
+    <section
+      id="services"
+      className="relative w-full bg-neutral-950 py-18 sm:py-24 px-4 sm:px-6 lg:px-8 font-satoshi overflow-x-clip -mt-px border-none"
+    >
+      {/* Subtle Gold Architectural Grid with Radial Fade */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none opacity-35"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(212, 175, 55, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(212, 175, 55, 0.08) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 50%, #000 40%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 50%, #000 40%, transparent 100%)",
+        }}
+      />
 
-        {/* Section Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-          className="text-neutral-950 font-clash font-bold text-4xl sm:text-5xl md:text-5xl text-center max-w-3xl leading-[1.1] mb-6"
-        >
-          Scrumptious Cuisine Services.
-        </motion.h2>
+      {/* Warm Ambient Spotlight */}
+      <div
+        aria-hidden="true"
+        className="absolute -top-24 right-0 w-[560px] h-[560px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(212,175,55,0.13) 0%, rgba(212,175,55,0) 68%)",
+        }}
+      />
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="text-neutral-500 text-sm sm:text-base text-center max-w-xl mb-16 sm:mb-20"
-        >
-          From daily meals and personalized private chef experiences to full-scale event catering, we bring culinary excellence to your table.
-        </motion.p>
+      {/* Subtle Tactile Grain */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+      />
 
-        {/* Services Grid - Now includes the CTA Banner as the 6th item */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
-          
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.12 }}
-              whileHover={{ y: -6 }}
-              className="flex flex-col justify-between rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 font-satoshi shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 hover:border-brand-gold/50 hover:shadow-[0_8px_30px_rgba(212,175,55,0.12)]"
-            >
-              <div>
-                {/* Card Header: Icon & Badge */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
-                    {service.icon}
-                  </div>
-                  <span className="text-brand-gold text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-brand-gold/10 border border-brand-gold/20 px-3 py-1 rounded-full">
-                    {service.badge}
-                  </span>
-                </div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* LEFT COLUMN (Desktop) / TOP STACK (Mobile) — Slides in from the LEFT */}
+          <div className="lg:col-span-7 flex flex-col">
+            {/* Header Block: Centered on mobile, Left-aligned on desktop */}
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left mb-8 sm:mb-9">
+              <motion.div
+                initial={{ opacity: 0, x: -36 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: "some" }}
+                transition={{ duration: 0.75, ease: "easeOut" }}
+                className="inline-flex items-center gap-2 bg-white text-neutral-950 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.2em] border-2 border-black shadow-[0_4px_0_0_#D4AF37] mb-5 transform-gpu"
+              >
+                <PillStarIcon />
+                <span>Our Services</span>
+              </motion.div>
 
-                {/* Service Title */}
-                <h3 className="text-neutral-900 font-clash font-bold text-2xl sm:text-3xl tracking-tight mb-3">
-                  {service.title}
-                </h3>
+              <motion.h2
+                initial={{ opacity: 0, x: -36 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: "some" }}
+                transition={{ duration: 0.75, ease: "easeOut", delay: 0.1 }}
+                className="text-white font-clash font-bold text-3xl sm:text-5xl md:text-[3.2rem] leading-[1.08] tracking-tight mb-3.5 transform-gpu"
+              >
+                Scrumptious Cuisine Services.
+              </motion.h2>
 
-                {/* Service Description */}
-                <p className="text-neutral-500 text-sm sm:text-base leading-relaxed mb-8">
-                  {service.description}
-                </p>
-              </div>
-
-              {/* Inquiry Action */}
-              <div className="pt-6 border-t border-neutral-100 flex items-center justify-between">
-                <span className="text-neutral-400 text-xs font-medium font-satoshi">
-                  Custom Quote Available
-                </span>
-                <a
-                  href={`https://wa.me/?text=Hi%20Jay's%20Kitchen,%20I'm%20interested%20in%20your%20${encodeURIComponent(service.title)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-gold hover:text-yellow-600 text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-colors"
-                >
-                  Book / Inquire &rarr;
-                </a>
-              </div>
-            </motion.div>
-          ))}
-
-          {/* Global CTA Banner (Now acting as the 6th grid item) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 5 * 0.12 }} 
-            className="w-full rounded-3xl bg-neutral-50 border border-neutral-200 p-6 sm:p-10 flex flex-col justify-center items-start gap-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
-          >
-            <div>
-              <h4 className="text-neutral-900 font-clash font-bold text-2xl sm:text-3xl mb-3">
-                Looking for something highly specific?
-              </h4>
-              <p className="text-neutral-500 text-sm sm:text-base">
-                Talk directly with our chef on WhatsApp to build a tailored menu or plan your culinary needs.
-              </p>
             </div>
-            <a
-              href="https://wa.me/09061645790"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-brand-gold hover:bg-brand-gold/90 text-neutral-950 font-satoshi font-bold text-sm px-8 py-4 rounded-none transition-transform duration-300 hover:scale-105 shadow-md w-full text-center sm:w-auto mt-auto"
-            >
-              Chat with Us
-            </a>
-          </motion.div>
 
+            {/* Clean Catering Box */}
+            <motion.div
+              initial={{ opacity: 0, x: -36 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.24 }}
+              className="w-full rounded-2xl border border-neutral-800 bg-neutral-900/90 p-6 sm:p-7 mb-6 transform-gpu"
+            >
+
+
+              <h3 className="text-white font-clash font-bold text-2xl sm:text-3xl tracking-tight mb-2.5">
+                Full-Scale Event Catering
+              </h3>
+
+              <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
+                Hosting a wedding, birthday celebration, corporate event, or family gathering? Our catering team handles generous, richly spiced Nigerian and continental spreads cooked fresh, neatly served, and tailored to your guest list.
+              </p>
+            </motion.div>
+
+            {/* Explore All Services Button */}
+            <motion.div
+              initial={{ opacity: 0, x: -36 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.3 }}
+              className="flex justify-center lg:justify-start mb-6 transform-gpu"
+            >
+              <Link
+                href="services"
+                className="inline-flex items-center justify-center bg-brand-gold text-neutral-950 hover:bg-white hover:text-neutral-950 font-satoshi font-bold text-sm sm:text-base px-9 py-3.5 rounded-full border-2 border-black shadow-[4px_4px_0_0_#FFFFFF] hover:shadow-[2px_2px_0_0_#FFFFFF] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
+              >
+                Explore All Services
+              </Link>
+            </motion.div>
+
+            {/* Tiny Compact Service Boxes */}
+            <motion.div
+              initial={{ opacity: 0, x: -36 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: "some" }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.36 }}
+              className="grid grid-cols-2 gap-2.5 sm:gap-3 transform-gpu"
+            >
+              {compactServices.map((serviceName) => (
+                <div
+                  key={serviceName}
+                  className="flex items-center justify-center text-center rounded-xl border border-neutral-800 bg-neutral-900/70 px-3 py-2.5 text-neutral-200 font-medium text-xs sm:text-sm"
+                >
+                  {serviceName}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* RIGHT COLUMN / BOTTOM ON MOBILE — Slides in from the RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, x: 36 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: "some" }}
+            transition={{ duration: 0.85, ease: "easeOut", delay: 0.15 }}
+            className="lg:col-span-5 flex justify-center lg:justify-end transform-gpu"
+          >
+            {/* Adjust mobile width (max-w-[360px] sm:max-w-[420px]), desktop width (lg:max-w-[450px]), and height (aspect-[4/4.6]) here */}
+            <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[450px] aspect-[4/4.6] rounded-3xl bg-neutral-900 overflow-hidden shadow-[0_14px_35px_rgba(0,0,0,0.65)] transform-gpu isolate">
+              <Image
+                src="/services/catering.webp"
+                alt="Imcoming image"
+                fill
+                sizes="(max-width: 1024px) 420px, 450px"
+                className="object-cover object-center"
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

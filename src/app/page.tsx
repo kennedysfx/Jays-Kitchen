@@ -12,6 +12,8 @@ import FoodGallery from "@/components/sections/FoodGallery";
 import Menu from "@/components/sections/Menu";
 import Howitworks from "@/components/sections/Howitworks";
 import Services from "@/components/sections/Services";
+import Kitchen from "@/components/sections/Kitchen";
+import Hungry from "@/components/sections/Hungry";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
@@ -61,6 +63,8 @@ export default function Home() {
       <Menu />
       <Howitworks />
       <Services />
+      <Kitchen  />
+      <Hungry />
       <Contact />
       <Footer />
     </main>

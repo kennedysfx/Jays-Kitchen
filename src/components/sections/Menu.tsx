@@ -231,7 +231,7 @@ export default function Menu() {
           </p>
 <Link
   href="/menu"
-  className="inline-flex items-center justify-center bg-neutral-950 text-white hover:bg-brand-gold hover:text-neutral-950 font-satoshi font-bold text-sm sm:text-base px-9 py-4 rounded-full border-2 border-black shadow-[4px_4px_0_0_#000000] hover:shadow-[2px_2px_0_0_#000000] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-200"
+  className="inline-flex items-center justify-center bg-brand-gold text-black hover:bg-brand-gold hover:text-white font-satoshi font-bold text-sm sm:text-base px-9 py-4 rounded-full border-2 border-black shadow-[4px_4px_0_0_#000000] hover:shadow-[2px_2px_0_0_#000000] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-200"
 >
   See the Full Menu
 </Link>
