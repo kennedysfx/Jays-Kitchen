@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Contact() {
   return (
     <section
-      id="contact"
+      
       className="w-full bg-[#F7F3EB] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 font-satoshi relative overflow-hidden"
     >
      <div className="max-w-7xl mx-auto flex flex-col items-center relative">

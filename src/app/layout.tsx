@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ScrollToTop from "../components/ScrollToTop";
+import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "Jay's Kitchen | Home Of Scrumptious Cusines",
+  title: "Jay's Kitchen | Home Of Scrumptious Cuisines",
   description: "Your comfort food delivered hot and fresh.",
   icons: [
     {
@@ -30,9 +31,10 @@ export default function RootLayout({
         <link rel="icon" href="/logo-black.png?v=2" type="image/png" />
         <link rel="apple-touch-icon" href="/logo-black.png?v=2" />
       </head>
-      <body className="antialiased bg-[#050505] text-[#FAFAFA] selection:bg-brand-gold/30">
+      <body className="antialiased bg-[#050505] text-[#FAFAFA] selection:bg-brand-gold/30 flex flex-col min-h-screen">
         <ScrollToTop />
-        {children}
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );

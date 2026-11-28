@@ -6,12 +6,12 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Favourite", href: "#favourite" },
-  { name: "Menu", href: "#menu" },
-  { name: "How It Works", href: "#how-it-works" },
-  { name: "Reviews", href: "#reviews" },
-  { name: "Our Services", href: "#services" },
-  { name: "Contact", href: "#contact" },
+  { name: "Favourite", href: "/#favourite" },
+  { name: "Menu", href: "/#menu" },
+  { name: "How It Works", href: "/#how-it-works" },
+  { name: "Reviews", href: "/#reviews" },
+  { name: "Our Services", href: "/#services" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Header({

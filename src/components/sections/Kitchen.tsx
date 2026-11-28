@@ -134,7 +134,7 @@ export default function Kitchen() {
                 ease: "easeOut",
                 delay: (index % 3) * 0.1,
               }}
-              className={`group relative w-full ${item.aspect} rounded-xl border-2 border-black bg-neutral-100 overflow-hidden transform-gpu isolate ${
+              className={`group relative w-full ${item.aspect} rounded-none border-2 border-black bg-neutral-100 overflow-hidden transform-gpu isolate ${
                 index % 3 === 1 ? "lg:translate-y-6" : ""
               }`}
             >
